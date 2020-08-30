@@ -4,15 +4,10 @@ public class MultipleCompany{
   final int IS_FULL_TIME=2;
   final int IS_ABSENT=0;
   
-<<<<<<< HEAD
-  private String CompanyName;
-  private int EMP_WAGE_PER_HR;
-  private int NUM_OF_WORKING_DAYS;
-=======
+
   private final String CompanyName;
   private final int EMP_WAGE_PER_HR;
   private final int NUM_OF_WORKING_DAYS;
->>>>>>> feature/uc9
   private int maxhrs;
  
   public MultipleCompany(final String CompanyName , final int EMP_WAGE_PER_HR, final int NUM_OF_WORKING_DAYS,final int maxhrs)
@@ -22,23 +17,8 @@ public class MultipleCompany{
         this. NUM_OF_WORKING_DAYS= NUM_OF_WORKING_DAYS;
         this.maxhrs=maxhrs;
 }
-<<<<<<< HEAD
 
-    public static void main(String args[]) {
-
-              MultipleCompany AXISEmp= new MultipleCompany("AXIS", 25, 25, 100);
-              int AXISWages=AXISEmp.EmpWageComputation();
-                System.out.println("Axis Employee salary: "+AXISWages);
-            
-              MultipleCompany SBIEmp= new MultipleCompany("SBI", 25, 25, 100);
-              int SBIWages=SBIEmp.EmpWageComputation();
-                System.out.println("SBI Employee salary: "+SBIWages);
-      }
-
-
-public int EmpWageComputation(){
-=======
-  public String getCompanyName(){
+ public String getCompanyName(){
    return CompanyName; 
    }
   public int getEMP_WAGE_PER_HR(){
@@ -52,7 +32,6 @@ public int EmpWageComputation(){
    }
 
     public int EmpWageComputation(){
->>>>>>> feature/uc9
          int empHrs=0;
          int Salary=0;
          int TotalWorkingDays=0;
@@ -85,12 +64,9 @@ public int EmpWageComputation(){
 
      }
                 Salary=(TotalEmpHr*EMP_WAGE_PER_HR);
-<<<<<<< HEAD
                 return Salary;
  }
-=======
-                 return Salary;                
- }
+                
 
   public static void main(String args[]) {
 
@@ -104,5 +80,4 @@ public int EmpWageComputation(){
       }
 
 
->>>>>>> feature/uc9
 }
