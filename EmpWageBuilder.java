@@ -8,35 +8,33 @@ public class EmpWageBuilder
 
 	public static void main(String[] args)
 	{
-  
-       
-		 	//Constants
          int empHrs=0;
          int Salary=0;
+         int EMP_WAGE_PER_DAY=0;
+        
          //Computation
+          for(int day=1; day<NUM_OF_WORKING_DAYS;day++)
+          {
       	int empCheck=(int)Math.floor(Math.random()*10)%3;
 			 
          switch( empCheck ){
              case IS_FULL_TIME:
 				      System.out.println("Employee Is full time");
-			         Salary = EMP_WAGE_PER_HR * empHrs;
-                   empHrs=8;
-				      System.out.println("Salary="+Salary);
+			         empHrs=8;
                    break;
      	      case IS_PART_TIME:
 				       System.out.println("Employee is Part time Employee");
 					     empHrs=4;
-					    Salary = EMP_WAGE_PER_HR * empHrs;
-                   System.out.println("Salary = " +Salary);
                   break;
             default:
 			           System.out.println("Employee Is Absent");
 					     empHrs=0;
-			   	     Salary = EMP_WAGE_PER_HR * empHrs;
-			           System.out.println("Salary = " +Salary);
                     break;
 		}
-
+       EMP_WAGE_PER_DAY=(empHrs*EMP_WAGE_PER_HR);
+       Salary=(Salary+EMP_WAGE_PER_DAY);
 	}
+    System.out.println("Monthly salary of employee = "  +Salary);
 }
 
+}
