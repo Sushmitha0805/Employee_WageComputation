@@ -1,67 +1,43 @@
 public class MultipleCompany{
 
-  final int IS_PART_TIME=1;
-  final int IS_FULL_TIME=2;
-  final int IS_ABSENT=0;
+  public static final int IS_PART_TIME=1;
+  public static final int IS_FULL_TIME=2;
+  public static final int IS_ABSENT=0;
   
-  private String CompanyName;
-  private int EMP_WAGE_PER_HR;
-  private int NUM_OF_WORKING_DAYS;
-  private int maxhrs;
- 
-  public MultipleCompany(final String CompanyName , final int EMP_WAGE_PER_HR, final int NUM_OF_WORKING_DAYS,final int maxhrs)
-{
-        this.CompanyName=CompanyName;
-        this.EMP_WAGE_PER_HR=EMP_WAGE_PER_HR;
-        this. NUM_OF_WORKING_DAYS= NUM_OF_WORKING_DAYS;
-        this.maxhrs=maxhrs;
+  public static int computeEmpWage(String company, int empRatePerHour, int numOfWorkingDays,int maxHoursPerMonth){
+	  //variables
+	  int empHrs=0;
+	  int totalEmpHrs=0;
+	  int totalWorkingDays=0;
+	  //computation
+	  while(totalEmpHrs<=maxHoursPerMonth && totalWorkingDays  < numOfWorkingDays){
+		  int empCheck=(int)Math.floor(Math.random()*10)%3;
+		  switch(empCheck){
+			  case IS_PART_TIME:
+				  empHrs=4;
+				  break;
+			  case IS_FULL_TIME:
+				  empHrs=8;
+				  break;
+			  case IS_ABSENT:
+				  empHrs=0;
+				  break;
+			  default:
+				  System.out.println("invalid");
+		  }
+		  totalEmpHrs+=empHrs;
+		  System.out.println("Day#: " +totalWorkingDays + "EmpHr:" +empHrs);
+	  }
+	  int totalEmpWage=totalEmpHrs*empRatePerHour;
+	  System.out.println("Total Emp Wage for comapny: " +company+ " is:" +totalEmpWage);
+	   return totalEmpWage;
+  }
+	public static void main(String[]args){
+		computeEmpWage("Dmart",20,20,100);
+		computeEmpWage("SBI",10,10,200);
+	}
+	
 }
-
-    public static void main(String args[]) {
-
-              MultipleCompany AXISEmp= new MultipleCompany("AXIS", 25, 25, 100);
-              int AXISWages=AXISEmp.EmpWageComputation();
-                System.out.println("Axis Employee salary: "+AXISWages);
-            
-              MultipleCompany SBIEmp= new MultipleCompany("SBI", 25, 25, 100);
-              int SBIWages=SBIEmp.EmpWageComputation();
-                System.out.println("SBI Employee salary: "+SBIWages);
-      }
-
-
-public int EmpWageComputation(){
-         int empHrs=0;
-         int Salary=0;
-         int TotalWorkingDays=0;
-         int TotalEmpHr=0;
-        
-         //Computation
-           while(TotalEmpHr <= maxhrs && TotalWorkingDays < NUM_OF_WORKING_DAYS)
-          {
-              TotalWorkingDays++;
-           	int empCheck=(int)Math.floor(Math.random()*10)%3;
-			 
-         switch( empCheck ){
-             case IS_FULL_TIME:
-				      System.out.println("Employee Is full time");
-			         empHrs=8;
-                   break;
-     	      case IS_PART_TIME:
-				       System.out.println("Employee is Part time Employee");
-					     empHrs=4;
-                  break;
-            case  IS_ABSENT:
-			           System.out.println("Employee Is Absent");
-					     empHrs=0;
-                    break;
-             default:
-                    System.out.println("invalid");
-		}
-           TotalEmpHr=(TotalEmpHr+empHrs);
-                        System.out.println("Day:"+TotalWorkingDays+" Emp Hours:"+ empHrs);
-
-     }
-                Salary=(TotalEmpHr*EMP_WAGE_PER_HR);
-                return Salary;
- }
-}
+		
+		
+		
